@@ -6,6 +6,7 @@
     <title>Diferensiasi & Branding</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         body { font-family: 'Inter', sans-serif; }
         .tab-button.active { @apply bg-blue-600 text-white shadow-lg transform -translate-y-1; }
@@ -20,9 +21,9 @@
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
- 
+
     <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
- 
+
         <header class="text-center mb-16">
             <div class="flex justify-center items-center space-x-4 mb-4">
                 <div class="bg-blue-600 w-16 h-16 sm:w-20 sm:h-20 rounded-full flex items-center justify-center">
@@ -36,7 +37,7 @@
                 Pondasi untuk membangun merek yang kuat tidak hanya terletak pada produk, melainkan pada bagaimana Anda membedakan diri dan mengukir identitas unik di benak pelanggan.
             </p>
         </header>
- 
+
         <section class="mb-20">
             <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-200">
                 <canvas id="mainCanvas" class="w-full h-80 rounded-xl mb-6 border border-gray-300"></canvas>
@@ -95,17 +96,17 @@
                         <div id="diffResultContent" class="text-gray-700"></div>
                     </div>
                 </div>
- 
+
             </div>
         </section>
- 
+
         <section class="mb-20 text-center">
             <h2 class="text-3xl font-bold text-gray-900 mb-4">Apa itu Branding?</h2>
             <p class="max-w-2xl mx-auto text-lg text-gray-600">
                 Branding adalah tentang membangun identitas dan hubungan emosional dengan pelanggan. Ini adalah janji yang Anda berikan kepada mereka.
             </p>
         </section>
- 
+
         <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
             <div class="bg-white p-6 rounded-2xl shadow-xl border border-gray-200">
                 <div class="text-5xl mb-4">✨</div>
@@ -134,7 +135,7 @@
             <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-200 text-center">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">Bangun Merek Anda ✨</h2>
                 <p class="max-w-2xl mx-auto text-lg text-gray-600 mb-6">
-                    Gunakan AI untuk membuat ide identitas merek yang unik dan kreatif. Cukup jelaskan produk atau layanan Anda!
+                    Gunakan Gemini AI untuk membuat ide identitas merek yang unik dan kreatif. Cukup jelaskan produk atau layanan Anda!
                 </p>
                 <div class="max-w-xl mx-auto">
                     <textarea id="productDescription" class="w-full h-32 p-4 rounded-xl bg-gray-100 text-gray-900 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4" placeholder="Contoh: Kedai kopi yang menjual minuman dengan bahan-bahan lokal dan ramah lingkungan."></textarea>
@@ -163,16 +164,16 @@
                         <div id="storyResultContent" class="text-gray-700"></div>
                     </div>
                 </div>
- 
+
             </div>
         </section>
- 
+
     </main>
- 
+
     <footer class="text-center text-gray-500 text-sm mt-16 pb-8">
-        <p>&copy; 2025 SlingshotLabs</p>
+        <p>&copy; 2025 Konsep Pemasaran Interaktif</p>
     </footer>
- 
+
     <script>
         const canvas = document.getElementById('mainCanvas');
         const ctx = canvas.getContext('2d');
@@ -180,7 +181,7 @@
         let width, height;
         let particles = [];
         const numParticles = 100;
- 
+
         function setCanvasSize() {
             width = canvas.clientWidth * dpr;
             height = canvas.clientHeight * dpr;
@@ -191,7 +192,7 @@
                 particles.push(createParticle());
             }
         }
- 
+
         function createParticle() {
             return {
                 x: Math.random() * width,
@@ -202,19 +203,19 @@
                 color: `rgba(59, 130, 246, ${Math.random() * 0.5 + 0.5})`
             };
         }
- 
+
         function draw() {
             ctx.clearRect(0, 0, width, height);
             ctx.fillStyle = '#fff';
             ctx.fillRect(0, 0, width, height);
- 
+
             particles.forEach(p => {
                 p.x += p.vx;
                 p.y += p.vy;
- 
+
                 if (p.x < 0 || p.x > width) p.vx *= -1;
                 if (p.y < 0 || p.y > height) p.vy *= -1;
- 
+
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
                 ctx.fillStyle = p.color;
@@ -234,7 +235,7 @@
             });
             requestAnimationFrame(draw);
         }
- 
+
         function showTab(tabId) {
             document.querySelectorAll('.tab-button').forEach(button => {
                 button.classList.remove('active');
@@ -247,7 +248,7 @@
             document.querySelector(`[onclick="showTab('${tabId}')"]`).classList.add('active', 'bg-blue-600', 'text-white');
             document.getElementById(tabId).classList.add('active');
         }
- 
+
         // --- Branding Feature
         const productDescription = document.getElementById('productDescription');
         const generateBtn = document.getElementById('generateBtn');
@@ -261,7 +262,7 @@
         const diffOutputDiv = document.getElementById('diffOutput');
         const diffResultContentDiv = document.getElementById('diffResultContent');
         const diffLoadingDiv = document.getElementById('diffLoading');
- 
+
         // --- Brand Story Feature
         const storyDescription = document.getElementById('storyDescription');
         const storyGenerateBtn = document.getElementById('storyGenerateBtn');
@@ -269,9 +270,9 @@
         const storyResultContentDiv = document.getElementById('storyResultContent');
         const storyLoadingDiv = document.getElementById('storyLoading');
         
-        const apiKey = "AIzaSyCLuz1qOnmgFPOZwjFDukxNG0EcU-yCtiM"; // Masukkan kunci API Anda di sini
+        const apiKey = ""; // Masukkan kunci API Anda di sini
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
- 
+
         // Main branding generator
         generateBtn.addEventListener('click', async () => {
             const description = productDescription.value.trim();
@@ -281,35 +282,35 @@
             resultContentDiv.innerHTML = '';
             loadingDiv.classList.remove('hidden');
             generateBtn.disabled = true;
- 
+
             const systemPrompt = `Anda adalah ahli branding yang inovatif. Buat ide branding unik berdasarkan deskripsi produk/layanan. Berikan ide nama merek, slogan, dan nada suara (brand voice) yang ringkas, kreatif, dan relevan untuk pasar Indonesia.`;
             const userQuery = `Deskripsi produk: "${description}"`;
- 
+
             const payload = {
                 contents: [{ parts: [{ text: userQuery }] }],
                 systemInstruction: { parts: [{ text: systemPrompt }] },
             };
- 
+
             try {
                 const response = await fetch(apiUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 });
- 
+
                 if (!response.ok) {
                     throw new Error(`API error: ${response.status}`);
                 }
- 
+
                 const result = await response.json();
                 const text = result?.candidates?.[0]?.content?.parts?.[0]?.text;
                 
                 if (text) {
-                    resultContentDiv.innerHTML = `<pre class="whitespace-pre-wrap">${text}</pre>`;
+                    resultContentDiv.innerHTML = marked.parse(text);
                 } else {
                     resultContentDiv.textContent = 'Maaf, tidak dapat membuat ide branding. Coba jelaskan lebih detail.';
                 }
- 
+
             } catch (error) {
                 console.error(error);
                 resultContentDiv.textContent = 'Terjadi kesalahan saat menghubungi server. Pastikan kunci API Anda sudah benar dan aktif.';
@@ -318,25 +319,25 @@
                 generateBtn.disabled = false;
             }
         });
- 
+
         // Differentiation generator
         diffGenerateBtn.addEventListener('click', async () => {
             const description = diffDescription.value.trim();
             if (!description) return;
- 
+
             diffOutputDiv.classList.remove('hidden');
             diffResultContentDiv.innerHTML = '';
             diffLoadingDiv.classList.remove('hidden');
             diffGenerateBtn.disabled = true;
- 
+
             const systemPrompt = `Anda adalah seorang konsultan pemasaran. Berikan 3-5 ide diferensiasi untuk sebuah produk berdasarkan deskripsi dan kompetitornya. Fokus pada diferensiasi produk, layanan, dan citra. Berikan jawaban dalam bentuk poin-poin.`;
             const userQuery = `Deskripsi produk dan kompetitor: "${description}"`;
- 
+
             const payload = {
                 contents: [{ parts: [{ text: userQuery }] }],
                 systemInstruction: { parts: [{ text: systemPrompt }] },
             };
- 
+
             try {
                 const response = await fetch(apiUrl, {
                     method: 'POST',
@@ -347,16 +348,16 @@
                 if (!response.ok) {
                     throw new Error(`API error: ${response.status}`);
                 }
- 
+
                 const result = await response.json();
                 const text = result?.candidates?.[0]?.content?.parts?.[0]?.text;
- 
+
                 if (text) {
-                    diffResultContentDiv.innerHTML = `<pre class="whitespace-pre-wrap">${text}</pre>`;
+                    diffResultContentDiv.innerHTML = marked.parse(text);
                 } else {
                     diffResultContentDiv.textContent = 'Maaf, tidak dapat membuat ide diferensiasi. Coba jelaskan lebih detail.';
                 }
- 
+
             } catch (error) {
                 console.error(error);
                 diffResultContentDiv.textContent = 'Terjadi kesalahan saat menghubungi server. Pastikan kunci API Anda sudah benar dan aktif.';
@@ -365,45 +366,45 @@
                 diffGenerateBtn.disabled = false;
             }
         });
- 
+
         // Brand story generator
         storyGenerateBtn.addEventListener('click', async () => {
             const description = storyDescription.value.trim();
             if (!description) return;
- 
+
             storyOutputDiv.classList.remove('hidden');
             storyResultContentDiv.innerHTML = '';
             storyLoadingDiv.classList.remove('hidden');
             storyGenerateBtn.disabled = true;
- 
+
             const systemPrompt = `Anda adalah seorang penulis cerita merek (brand storyteller) yang inspiratif. Buat sebuah narasi merek yang singkat, kuat, dan memikat (maksimal 4-5 kalimat) berdasarkan deskripsi produk dan nilai inti yang diberikan. Cerita harus mampu membangkitkan emosi dan loyalitas pelanggan.`;
             const userQuery = `Deskripsi produk dan nilai inti: "${description}"`;
- 
+
             const payload = {
                 contents: [{ parts: [{ text: userQuery }] }],
                 systemInstruction: { parts: [{ text: systemPrompt }] },
             };
- 
+
             try {
                 const response = await fetch(apiUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 });
- 
+
                 if (!response.ok) {
                     throw new Error(`API error: ${response.status}`);
                 }
- 
+
                 const result = await response.json();
                 const text = result?.candidates?.[0]?.content?.parts?.[0]?.text;
- 
+
                 if (text) {
-                    storyResultContentDiv.innerHTML = `<pre class="whitespace-pre-wrap">${text}</pre>`;
+                    storyResultContentDiv.innerHTML = marked.parse(text);
                 } else {
                     storyResultContentDiv.textContent = 'Maaf, tidak dapat membuat cerita merek. Coba jelaskan lebih detail.';
                 }
- 
+
             } catch (error) {
                 console.error(error);
                 storyResultContentDiv.textContent = 'Terjadi kesalahan saat menghubungi server. Pastikan kunci API Anda sudah benar dan aktif.';
@@ -412,13 +413,13 @@
                 storyGenerateBtn.disabled = false;
             }
         });
- 
+
         window.onload = () => {
             setCanvasSize();
             showTab('product');
             draw();
         };
- 
+
         window.addEventListener('resize', setCanvasSize);
     </script>
 </body>
