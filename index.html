@@ -270,7 +270,7 @@
         const storyResultContentDiv = document.getElementById('storyResultContent');
         const storyLoadingDiv = document.getElementById('storyLoading');
         
-        const apiKey = "AIzaSyCLuz1qOnmgFPOZwjFDukxNG0EcU-yCtiM"; // Masukkan kunci API Anda di sini
+        const apiKey = "AIzaSyCgO-QswwbqK8lIZR9wEsQzaN10O-EQqWI"; // 
         const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
         // Main branding generator
@@ -377,7 +377,7 @@
             storyLoadingDiv.classList.remove('hidden');
             storyGenerateBtn.disabled = true;
 
-            const systemPrompt = `Anda adalah seorang penulis cerita merek (brand storyteller) yang inspiratif. Buat sebuah narasi merek yang singkat, kuat, dan memikat (maksimal 4-5 kalimat) berdasarkan deskripsi produk dan nilai inti yang diberikan. Cerita harus mampu membangkitkan emosi dan loyalitas pelanggan.`;
+            const systemPrompt = `Anda adalah seorang penulis cerita merek (brand storyteller) yang inspiratif seperti seth godin. Buat sebuah narasi merek yang singkat, kuat, dan memikat (maksimal 4-5 kalimat) berdasarkan deskripsi produk dan nilai inti yang diberikan. Cerita harus mampu membangkitkan emosi dan loyalitas pelanggan.`;
             const userQuery = `Deskripsi produk dan nilai inti: "${description}"`;
 
             const payload = {
