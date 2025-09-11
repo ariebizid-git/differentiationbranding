@@ -42,7 +42,7 @@
             <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-200">
                 <canvas id="mainCanvas" class="w-full h-80 rounded-xl mb-6 border border-gray-300"></canvas>
                 <div class="text-center">
-                    <h2 class="text-3xl font-bold text-gray-900">Apa itu Diferensiasi?</h2>
+                    <h2 class="text-3xl font-bold text-gray-900">Apakah Diferensiasi?</h2>
                     <p class="mt-2 text-gray-600">
                         Ini adalah tindakan merancang perbedaan yang bermakna untuk memisahkan penawaran Anda dari pesaing.
                     </p>
@@ -130,7 +130,7 @@
             </div>
         </section>
         
-        <!-- --- Gemini API Powered Feature --- -->
+        <!-- --- API Powered Feature --- -->
         <section class="mb-20 mt-20">
             <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-xl border border-gray-200 text-center">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">Bangun Merek Anda ✨</h2>
@@ -283,7 +283,7 @@
             loadingDiv.classList.remove('hidden');
             generateBtn.disabled = true;
 
-            const systemPrompt = `Anda adalah ahli branding yang inovatif. Buat ide branding unik berdasarkan deskripsi produk/layanan. Berikan ide nama merek, slogan, dan nada suara (brand voice) yang ringkas, kreatif, dan relevan untuk pasar Indonesia.`;
+            const systemPrompt = `Anda adalah ahli branding yang inovatif seperti al ries. Buat ide branding unik berdasarkan deskripsi produk/layanan. Berikan ide nama merek, slogan, dan nada suara (brand voice) yang ringkas, kreatif, dan relevan untuk pasar Indonesia.`;
             const userQuery = `Deskripsi produk: "${description}"`;
 
             const payload = {
@@ -330,7 +330,7 @@
             diffLoadingDiv.classList.remove('hidden');
             diffGenerateBtn.disabled = true;
 
-            const systemPrompt = `Anda adalah seorang konsultan pemasaran. Berikan 3-5 ide diferensiasi untuk sebuah produk berdasarkan deskripsi dan kompetitornya. Fokus pada diferensiasi produk, layanan, dan citra. Berikan jawaban dalam bentuk poin-poin.`;
+            const systemPrompt = `Anda adalah seorang konsultan pemasaran sepeti philip kotler. Berikan 3-5 ide diferensiasi untuk sebuah produk berdasarkan deskripsi dan kompetitornya. Fokus pada diferensiasi produk, layanan, dan citra. Berikan jawaban dalam bentuk poin-poin.`;
             const userQuery = `Deskripsi produk dan kompetitor: "${description}"`;
 
             const payload = {
@@ -377,7 +377,7 @@
             storyLoadingDiv.classList.remove('hidden');
             storyGenerateBtn.disabled = true;
 
-            const systemPrompt = `Anda adalah seorang penulis cerita merek (brand storyteller) yang inspiratif seperti seth godin. Buat sebuah narasi merek yang singkat, kuat, dan memikat (maksimal 4-5 kalimat) berdasarkan deskripsi produk dan nilai inti yang diberikan. Cerita harus mampu membangkitkan emosi dan loyalitas pelanggan.`;
+            const systemPrompt = `Anda adalah seorang penulis cerita merek (brand storyteller) yang inspiratif seperti malcolm gladwell. Buat sebuah narasi merek yang singkat, kuat, dan memikat (maksimal 4-5 kalimat) berdasarkan deskripsi produk dan nilai inti yang diberikan. Cerita harus mampu membangkitkan emosi dan loyalitas pelanggan.`;
             const userQuery = `Deskripsi produk dan nilai inti: "${description}"`;
 
             const payload = {
